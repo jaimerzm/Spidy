@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stitch Design</title>
+    <title>Estudio Mágico de Imágenes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Script para configurar variables de entorno en tiempo de ejecución -->
+    <script>
+      // Inicializar objeto global para variables de entorno
+      window.__ENV__ = window.__ENV__ || {};
+      
+      // Configurar la API key de Gemini (se reemplazará durante el despliegue)
+      window.__ENV__.GEMINI_API_KEY = '%GEMINI_API_KEY%';
+    </script>
     <style type="text/tailwindcss">
       :root {
         --primary-color: #00F0A0;

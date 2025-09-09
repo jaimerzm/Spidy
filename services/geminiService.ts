@@ -1,7 +1,24 @@
 
 import { GoogleGenAI, Part, Modality } from '@google/genai';
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Función para obtener la API key de diferentes fuentes
+const getApiKey = () => {
+  // Intentar obtener la API key de process.env (desarrollo local)
+  if (process.env.API_KEY) {
+    return process.env.API_KEY;
+  }
+  
+  // Si estamos en producción, intentar obtener de window.__ENV__
+  // Esta variable se configurará en el HTML durante el despliegue
+  if (typeof window !== 'undefined' && window.__ENV__ && window.__ENV__.GEMINI_API_KEY) {
+    return window.__ENV__.GEMINI_API_KEY;
+  }
+  
+  // Fallback a una variable de entorno estática (configurada durante el build)
+  return process.env.GEMINI_API_KEY || '';
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 interface EditImagePayload {
   prompt: string;
