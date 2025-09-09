@@ -1,0 +1,5 @@
+{
+  "name": "Estudio Mágico de Imágenes",
+  "description": "Una aplicación web que utiliza los modelos de Gemini para crear o editar imágenes a partir de descripciones de texto e imágenes subidas, con historial de conversaciones.",
+  "requestFramePermissions": []
+}
